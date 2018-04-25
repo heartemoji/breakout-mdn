@@ -69,9 +69,16 @@
                 dy = -dy;
             }
             else if(y + dy > canvas.height-ballRadius){
-                alert("GAME OVER");
-                document.location.reload();
+                if(x > paddleX && x < paddleX + paddleWidth){ //paddle collision logic
+                    dy = -dy;
+                }
+                else{
+                    alert("GAME OVER");
+                    document.location.reload();
+                }
+                
             }
+            
             //left and right
             if(x + dx > canvas.width - ballRadius|| x + dx < ballRadius) {
                 dx = -dx;
